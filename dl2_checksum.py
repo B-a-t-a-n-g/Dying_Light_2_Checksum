@@ -1,12 +1,19 @@
 import struct
 import sys
-import shutil
 
 STRUCT_SIZE = 20
 MAGIC_SGDS  = b'SGDS'
 MAGIC_SGDD  = b'SGDD'
 
 TARGET_MAGICS = {MAGIC_SGDS, MAGIC_SGDD}
+
+# CRC64 Params
+# width=64,
+# poly=0xAD93D23594C935A9,
+# init=0xFF_FF_FF_FF_FF_FF_FF_FF,
+# refin=True,
+# refout=True,
+# xorout=0xFF_FF_FF_FF_FF_FF_FF_FF
 
 CRC64_TABLE = [
     0x0000000000000000, 0x7ad870c830358979, 0xf5b0e190606b12f2, 0x8f689158505e9b8b,
@@ -90,9 +97,6 @@ def write_file(path: str, data: bytearray, fixed: int):
     if fixed == 0:
         print("No changes — file not modified.")
         return
-    backup = path + ".bak"
-    shutil.copy2(path, backup)
-    print(f"Backup saved : {backup}")
     with open(path, 'wb') as f:
         f.write(data)
 
