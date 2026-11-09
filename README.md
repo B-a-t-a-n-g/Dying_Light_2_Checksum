@@ -1,10 +1,14 @@
 # Dying Light 2 Checksum Tool
 
 A Python CLI tool for recalculating checksums for Dying Light 2
+> [!NOTE]
+> Dying Light The Beast uses the same checksums
+
 
 ---
 
-## Usage
+
+## Usage:
 
 ```bash
 python dl2_checksum.py <file>
