@@ -15,6 +15,6 @@ python dl2_checksum.py <file>
 ```
 
 > [!NOTE]
-> Current usage is for already decompressed saves.
+> Current usage is for already decompressed saves
 >
-> gzip is used for the compression.
+> gzip is used for the compression
